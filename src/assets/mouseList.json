@@ -1,0 +1,17 @@
+[
+	{
+		"nombre": "Logitech",
+		"precio": "$50",
+		"RBG": "Yes"
+	},
+	{
+		"nombre": "Halion",
+		"precio": "$5",
+		"RBG": "No"
+	},
+	{
+		"nombre": "Logitech KDA Edition",
+		"precio": "$150",
+		"RBG": "Yes"
+	}
+]

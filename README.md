@@ -60,3 +60,11 @@ For more information on using the Angular CLI, including detailed command refere
 
 
 ## https://www.ngxs.io/
+
+
+-- First install tailwindcss
+- > npm install tailwindcss --save-dev
+- > npx tailwindcss init
+
+-- installing Flowbite
+- npm install flowbite

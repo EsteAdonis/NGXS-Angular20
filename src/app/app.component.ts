@@ -7,18 +7,20 @@ import { TodoState } from './state/todo.state';
 import { Store } from '@ngxs/store';
 import { AddTodo, LoadTodos, DeleteTodo, UpdateTodo} from './state/todo.actions';
 import { Todo } from './models/todo';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule, FormsModule],
 	standalone: true, 
   template: `
+		<div class="bg-white dark:bg-gray-800 rounded-lg px-6 py-8 ring shadow-xl ring-gray-900/5">
 	  <h3>Todos (NGXS Standalone)</h3>
 		<br />
     <input id="inputTodo" [(ngModel)]="todoText" placeholder="Add todo" type="text"/>
     <button type="button" id="btn-addTodo" (click)="addTodo()" >Add</button>
     <ul>
-			@for (todo of todos$ | async ; track $index) {
+			@for (todo of todos$ | async; track $index) {
 				<li >
 					{{ todo.title }} - {{ todo.completed ? '✅' : '❌' }} 
 					<button (click)="toggle(todo)">&nbsp; &nbsp; Toggle</button>
@@ -27,6 +29,7 @@ import { Todo } from './models/todo';
 			}
     </ul>
 		<router-outlet />
+		</div>
   `	
 })
 export class App implements OnInit {
@@ -38,7 +41,8 @@ export class App implements OnInit {
   todos$: Observable<Todo[]> = this.store.select(TodoState.getTodos);
 
 	ngOnInit() {
-		this.store.dispatch(new LoadTodos());		
+		this.store.dispatch(new LoadTodos());
+		initFlowbite();
 	}
 
 	addTodo() {
